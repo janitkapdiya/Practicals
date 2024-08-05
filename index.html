@@ -1,9 +1,101 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicals</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .subject {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .subject:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        .subject h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .subject a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .subject a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .subject {
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Practicals Index 📚</h1>
+        <nav>
+            <ul>
+                <li><a href="dbms-practicals.html">Database Management System</a></li>
+                <li><a href="dbms-practicals.html">Object-Oriented Programming</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="dbms" class="subject">
+            <h2>Database Management System</h2>
+            <p>Explore various practicals related to Database Management Systems.</p>
+            <a href="dbms-practicals.html">View DBMS Practicals</a>
+        </div>
+        <div id="dbms" class="subject">
+          <h2>Object-Oriented Programming</h2>
+          <p>Explore various practicals related to Object-Oriented Programming.</p>
+          <a href="oop-practicals.html">View OPPs Practicals</a>
+      </div>
+    </div>
+</body>
 </html>
