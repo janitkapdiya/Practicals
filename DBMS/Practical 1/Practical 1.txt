@@ -2,8 +2,8 @@
 create database DB1;
 use DB1;
 create table client_master (
-	Client_no varchar(6),
-   	Client_name varchar(20),
+			Client_no varchar(6),
+   		Client_name varchar(20),
     	City varchar (15),
     	Pincode numeric (8),
     	state varchar (15),
@@ -21,7 +21,7 @@ select * from client_master;
 
 <==================== Table 2 ↓ ====================>
 create table Product_master(
-	Product_no varchar (6), 
+			Product_no varchar (6), 
     	Product_description varchar (15), 
     	Product_percent numeric (4,2), 
     	U_measure varchar (10), 
@@ -42,4 +42,21 @@ Insert into Product_master (Product_no, Product_description, Product_percent, U_
 select * from Product_master;
 
 <==================== Table 3 ↓ ====================>
+create table Salesman_master{
+			S_no varchar (6),
+			S_name varchar (20),
+			City varchar (20),
+			Pincode numeric (8),
+			State varchar (20),
+			Sal_amt numeric (8,2),
+			Tgt_to_get numeric (6,2),
+			Ytd_sales numeric (6,2),
+			remarks varchar (12)
+}
 
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S001', 'Kiran', 'Bombay', '40002', 'Maharashtra', '3000', '100', '50', 'Excellent');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S002', 'Manish', 'Bombay', '40001', 'Maharashtra', '3000', '200', '100', 'Good');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S003', 'Ravi', 'Bombay', '40032', 'Maharashtra', '3000', '200', '100', 'Average');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S004', 'Ashish', 'Bombay', '40044', 'Maharashtra', '3500', '200', '150', 'Good');
+
+select * from Salesman_master;
