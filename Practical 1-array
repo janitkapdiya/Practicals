@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main() {
+    int a[3]={1,2,3},i;
+    int *p;
+    p=a;
+    for(i=0; i<3 ;i++){
+        printf("%d is storded at %u \n", *p,p);
+        p++;
+    }
+}
