@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+    int a[5],i;
+    printf("MENU \n 1.Push \n 2.Exit \n ");
+    printf("Enter your choice:");
+    scanf("%d",&choice);
+    if(choice==1){
+        printf("Enter a digit you want to Insert: ");
+        scanf("%d", &a);
+        // for(i=0; i<5; i++){
+            
+        // }
+    }
+    else {
+        printf("you are out!");
+    }
+}
