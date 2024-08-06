@@ -16,6 +16,7 @@ Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due)
 Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C004', 'Basu', 'Bombay', '400057', 'Maharashtra', '0');
 Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C005', 'Ravi', 'Delhi', '400056', 'Gujarat', '2000');
 Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C006', 'Rukmani', 'Bombay', '400050', 'Maharashtra', '0');
+
 select * from client_master;
 
 <==================== Table 2 ↓ ====================>
@@ -38,4 +39,7 @@ Insert into Product_master (Product_no, Product_description, Product_percent, U_
 Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P006', 'Cd Drive', '2.5', 'Piece', '10', '3', '5250', '5100');
 Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P007', '1.44 Drive', '4', 'Piece', '10', '3', '8400', '8000');
 
+select * from Product_master;
+
 <==================== Table 3 ↓ ====================>
+

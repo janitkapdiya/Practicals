@@ -1,5 +1,5 @@
 <h1>Practicals 📚</h1>
-<h2>🔍 About Repo</h2>
+<h2>🔍 About Repository</h2>
 <p>
   This repository is created for hosting practical subject-wise resources that
   will aid in my further studies. It serves as a reference for practical

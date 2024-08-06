@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practicals</title>
+    <title>DBMS Practicals</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
@@ -13,7 +13,7 @@
         font-family: "Poppins", sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f9f9f9;
+        background-color: #f4f4f4;
       }
       header {
         background-color: #0073e6;
@@ -25,7 +25,7 @@
       nav ul {
         list-style: none;
         padding: 0;
-        margin: 10px 0 0 0;
+        margin: 0;
         display: flex;
         justify-content: center;
       }
@@ -46,7 +46,7 @@
         max-width: 1200px;
         margin: 40px auto;
       }
-      .subject {
+      .practical {
         background-color: #fff;
         padding: 30px;
         margin-bottom: 20px;
@@ -54,19 +54,19 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
       }
-      .subject:hover {
+      .practical:hover {
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
       }
-      .subject h2 {
+      .practical h2 {
         margin-top: 0;
-        font-size: 1.8em;
+        font-size: 1.5em;
         color: #333;
       }
-      .subject p {
+      .practical p {
         color: #666;
         line-height: 1.6;
       }
-      .subject a {
+      .practical a {
         display: inline-block;
         margin-top: 10px;
         color: #0073e6;
@@ -74,7 +74,31 @@
         font-weight: 600;
         transition: color 0.3s ease;
       }
-      .subject a:hover {
+      .practical a:hover {
+        color: #ffdd57;
+      }
+      .warning {
+        background-color: #ffcccb;
+        color: #d8000c;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 1em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .back-link {
+        display: block;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .back-link a {
+        color: #0073e6;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      .back-link a:hover {
         color: #ffdd57;
       }
       footer {
@@ -88,59 +112,41 @@
       }
       /* Responsive styles */
       @media (max-width: 768px) {
-        nav ul {
-          flex-direction: column;
-          align-items: center;
-        }
-        nav ul li {
-          margin: 10px 0;
-        }
-        .subject {
+        .practical {
           padding: 20px;
           margin-bottom: 15px;
-        }
-        footer {
-          position: static;
-          padding: 20px 0;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Practicals 📚</h1>
-      <!-- <nav>
-        <ul>
-          <li><a href="Other files/dbms-practicals.html">DBMS</a></li>
-          <li><a href="Other files/oop-practicals.html">OOPs</a></li>
-          <li><a href="Other files/users.html">Users</a></li>
-        </ul>
-      </nav> -->
+      <h1>DBMS Practicals</h1>
     </header>
-
     <div class="container">
-      <div class="subject">
-        <h2>Database Management System</h2>
+      <div class="warning">
         <p>
-          Explore various practicals related to Database Management Systems.
+          <strong>Warning:</strong> These practical exercises were done by Janit
+          Patel for study purposes only. If you copy them, action will be taken.
         </p>
-        <a href="Other files/dbms-practicals.html">View DBMS Practicals</a>
       </div>
-      
-      <div class="subject">
-        <h2>Object-Oriented Programming</h2>
+      <div class="practical">
+        <h2>
+          Practical 1: To create database and insert records in the tables.
+        </h2>
         <p>
-          Explore various practicals related to Object-Oriented Programming.
+          Learn how to create a database schema and insert data into tables.
         </p>
-        <a href="Other files/oop-practicals.html">View OOPs Practicals</a>
+        <a href="DBMS/Practical 1/Practical 1.txt" target="_blank">View Input</a>
+        •
+        <a
+          href="https://docs.google.com/document/d/1tWRJKVSQAionJ_THaJiQp1qhn9C32xKtD1ZdmBWTzZA/edit?usp=sharing"
+          target="_blank"
+          >View Document</a
+        >
       </div>
-      
-      <div class="subject">
-        <h2>Data Structure</h2>
-        <p>
-          Explore various practicals related to Data Structure.
-        </p>
-        <a href="Other files/ds-practicals.html">View DS Practicals</a>
+      <div class="back-link">
+        <a href="index.html">Back to Home</a>
       </div>
     </div>
   </body>
