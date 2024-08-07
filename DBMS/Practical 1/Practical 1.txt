@@ -42,7 +42,7 @@ Insert into Product_master (Product_no, Product_description, Product_percent, U_
 select * from Product_master;
 
 <==================== Table 3 ↓ ====================>
-create table Salesman_master{
+create table Salesman_master(
 			S_no varchar (6),
 			S_name varchar (20),
 			City varchar (20),
@@ -52,7 +52,7 @@ create table Salesman_master{
 			Tgt_to_get numeric (6,2),
 			Ytd_sales numeric (6,2),
 			remarks varchar (12)
-}
+);
 
 Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S001', 'Kiran', 'Bombay', '40002', 'Maharashtra', '3000', '100', '50', 'Excellent');
 Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S002', 'Manish', 'Bombay', '40001', 'Maharashtra', '3000', '200', '100', 'Good');
