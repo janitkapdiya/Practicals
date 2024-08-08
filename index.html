@@ -77,6 +77,52 @@
       .subject a:hover {
         color: #ffdd57;
       }
+      .contributors {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .contributors h2 {
+        margin-top: 0;
+        font-size: 1.8em;
+        color: #333;
+        text-align: center;
+      }
+      .contributor {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .contributor img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+      .contributor-info {
+        flex-grow: 1;
+      }
+      .contributor-info h3 {
+        margin: 0;
+        font-size: 1.4em;
+        color: #333;
+      }
+      .contributor-info p {
+        margin: 5px 0;
+        color: #666;
+      }
+      .contributor-info a {
+        margin-right: 10px;
+        color: #0073e6;
+        text-decoration: none;
+        font-size: 1.2em;
+        transition: color 0.3s ease;
+      }
+      .contributor-info a:hover {
+        color: #ffdd57;
+      }
       footer {
         background-color: #0073e6;
         color: #fff;
@@ -102,6 +148,18 @@
         footer {
           position: static;
           padding: 20px 0;
+        }
+        .contributor {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .contributor img {
+          margin-bottom: 10px;
+        }
+        .contributor-info a {
+          display: inline-block;
+          margin-bottom: 5px;
         }
       }
     </style>
@@ -143,6 +201,33 @@
           Explore various practicals related to Object-Oriented Programming.
         </p>
         <a href="oop-practicals.html">View OOPs Practicals</a>
+      </div>
+      
+      <div class="contributors">
+        <h2>Contributors</h2>
+        <div class="contributor">
+          <!-- <img src="profile1.jpg" alt="Contributor Name" /> -->
+          <div class="contributor-info">
+            <h3>Janit Patel</h3>
+            <p>janitkapdiya@gmail.com</p>
+            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
+          </div>
+
+          <!-- <img src="profile1.jpg" alt="Contributor Name" /> -->
+          <div class="contributor-info">
+            <h3>Dev Prajapati</h3>
+            <p>Dev300036@gmail.com</p>
+            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
+          </div>
+
+          <!-- <img src="profile1.jpg" alt="Contributor Name" /> -->
+          <div class="contributor-info">
+            <h3>Fenil Prajapati</h3>
+            <p>prafenil007@gmail.com</p>
+            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
