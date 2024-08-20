@@ -51,3 +51,33 @@ public class Practical_4{ //MonthName
     }
 }
 
+//==========================QUESTION 2=========================
+import java.util.Scanner; // Import Scanner class for user input
+public class practical_4 { //WeekdayName
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Create Scanner object
+        System.out.println("Enter a weekday number (1-7): "); // Prompt user
+        int num = scanner.nextInt(); // Read user input
+
+        // Determine weekday name based on number
+        switch (num) {
+            case 1:
+                System.out.println("Sunday"); break;
+            case 2:
+                System.out.println("Monday"); break;
+            case 3:
+                System.out.println("Tuesday"); break;
+            case 4:
+                System.out.println("Wednesday"); break;
+            case 5:
+                System.out.println("Thursday"); break;
+            case 6:
+                System.out.println("Friday"); break;
+            case 7:
+                System.out.println("Saturday"); break;
+            default:
+                System.out.println("Invalid input"); // Handle invalid input
+                break;
+        }
+    }
+}
