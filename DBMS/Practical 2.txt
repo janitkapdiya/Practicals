@@ -31,8 +31,38 @@ FROM Product_master
 ORDER BY Sell_price DESC;
 
 -- --------------------------------------------------------------------------------------------------------------------------------------
+-- Disable Safe Update Mode for the Current Session:
+SET SQL_SAFE_UPDATES = 0;
+-- --------------------------------------------------------------------------------------------------------------------------------------
 
 -- (B) Updating records in a table.
 -- -------------------------------------------------------------------
 
 -- 1. Change the city of client_no’C002’ to ‘Bombay’.
+UPDATE client_master
+SET City = 'Bombay'
+WHERE Client_no = 'C002';
+SELECT * FROM client_master WHERE Client_no = 'C002';
+
+-- 2. Change the bal_due of client_no’C001’ to Rs.1000
+UPDATE client_master
+SET Bal_due = 1000
+WHERE Client_no = 'C001';
+SELECT * FROM client_master WHERE Client_no = 'C001';
+
+-- 3. Change the cost price of Floppies to Rs. 950.00
+UPDATE Product_master
+SET Cost_price = 950.00
+WHERE Product_description = 'Floppies';
+SELECT * FROM Product_master WHERE Product_description = 'Floppies';
+
+-- 4. Change the city of the salesman to Mumbai.
+UPDATE Salesman_master
+SET City = 'Mumbai';
+SELECT * FROM Salesman_master WHERE City = 'Mumbai';
+
+-- --------------------------------------------------------------------------------------------------------------------------------------
+-- Re-enable safe updates.
+SET SQL_SAFE_UPDATES = 1;
+-- --------------------------------------------------------------------------------------------------------------------------------------
+
