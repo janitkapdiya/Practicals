@@ -16,4 +16,23 @@ SELECT Client_name FROM client_master WHERE City = 'Bombay';
 -- 5. Find the names of the salesman who have a salary equal to Rs. 3000
 SELECT S_name FROM Salesman_master WHERE Sal_amt = 3000;
 
--- 6. 
+-- 6. List out only unique values for the city of client_master table
+SELECT DISTINCT City FROM client_master;
+
+-- 7. Display product_master table according to the sell_price of product.
+SELECT * FROM Product_master ORDER BY Sell_price DESC;
+
+-- 8. Display product_master table according to the sell_price and cost_price.
+SELECT * FROM Product_master ORDER BY Sell_price, Cost_price;
+
+--9. Display product_no, description in descending order of sell_price for product_master table.
+SELECT Product_no, Product_description
+FROM Product_master
+ORDER BY Sell_price DESC;
+
+-- --------------------------------------------------------------------------------------------------------------------------------------
+
+-- (B) Updating records in a table.
+-- -------------------------------------------------------------------
+
+-- 1. Change the city of client_no’C002’ to ‘Bombay’.
