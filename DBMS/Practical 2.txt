@@ -1,0 +1,19 @@
+-- (A) Retrieving records from table.
+-- -------------------------------------------------------------------
+
+-- 1. Find out the names of all clients.
+SELECT Client_name FROM client_master;
+
+-- 2. Retrieve the list of names and the cities of all the clients
+SELECT Client_name, City FROM client_master;
+
+-- 3. List the various products available from the product_master table.
+SELECT DISTINCT Product_description FROM Product_master;
+
+-- 4. List all the clients who are located in Bombay.
+SELECT Client_name FROM client_master WHERE City = 'Bombay';
+
+-- 5. Find the names of the salesman who have a salary equal to Rs. 3000
+SELECT S_name FROM Salesman_master WHERE Sal_amt = 3000;
+
+-- 6. 
