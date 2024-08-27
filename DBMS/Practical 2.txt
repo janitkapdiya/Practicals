@@ -29,11 +29,14 @@ SELECT * FROM Product_master ORDER BY Sell_price, Cost_price;
 SELECT Product_no, Product_description
 FROM Product_master
 ORDER BY Sell_price DESC;
+-- -------------------------------------------------------------------
+
 
 -- --------------------------------------------------------------------------------------------------------------------------------------
 -- Disable Safe Update Mode for the Current Session:
 SET SQL_SAFE_UPDATES = 0;
 -- --------------------------------------------------------------------------------------------------------------------------------------
+
 
 -- (B) Updating records in a table.
 -- -------------------------------------------------------------------
@@ -60,6 +63,7 @@ SELECT * FROM Product_master WHERE Product_description = 'Floppies';
 UPDATE Salesman_master
 SET City = 'Mumbai';
 SELECT * FROM Salesman_master WHERE City = 'Mumbai';
+-- -------------------------------------------------------------------
 
 
 -- (C) Deleting records in a table.
@@ -72,6 +76,7 @@ DELETE FROM Product_master WHERE Qty_on_hand = 100;
 
 -- 3. Delete from client_master where the column state holds the value ‘Tamil Nadu’.
 DELETE FROM client_master WHERE State = 'Tamil Nadu';
+-- -------------------------------------------------------------------
 
 
 -- (D) Altering the table structure.
@@ -90,6 +95,40 @@ DESCRIBE client_master;
 -- 4. Delete column contact from client_master table.
 ALTER TABLE client_master DROP COLUMN contact;
 SELECT * FROM client_master;
+-- -------------------------------------------------------------------
+
+
+-- (E) Deleting the table structure along with data.
+-- -------------------------------------------------------------------
+
+-- 1. Create a table employee with 4 columns and 5 rows. Destroy the table employee along with its data.
+CREATE TABLE employee (
+    emp_id VARCHAR(4),
+    emp_name VARCHAR(50),
+    emp_department VARCHAR(50),
+    emp_salary DECIMAL(10, 2)
+);
+
+INSERT INTO employee (emp_id, emp_name, emp_department, emp_salary) VALUES
+(E001, 'Arjun Patel', 'Finance', 55000.00),
+(E002, 'Sneha Sharma', 'HR', 60000.00),
+(E003, 'Ravi Kumar', 'IT', 70000.00),
+(E004, 'Priya Singh', 'Marketing', 65000.00),
+(E005, 'Amit Desai', 'Sales', 58000.00);
+
+select * from employee;
+
+DROP TABLE employee;
+-- -------------------------------------------------------------------
+
+
+-- (F) Renaming the table.
+-- -------------------------------------------------------------------
+
+-- 1. Change the name of the salesman_master table to sman_mast.
+RENAME TABLE Salesman_master TO sman_mast;
+
+-- -------------------------------------------------------------------
 
 
 -- --------------------------------------------------------------------------------------------------------------------------------------
