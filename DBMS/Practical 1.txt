@@ -1,6 +1,7 @@
--- ==================== Table 1 ↓ ====================
 create database DB1;
 use DB1;
+
+-- ==================== Table 1 ↓ ====================
 create table client_master (
 			Client_no varchar(6),
    		Client_name varchar(20),
