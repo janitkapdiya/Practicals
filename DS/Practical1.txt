@@ -151,6 +151,107 @@ void change()
 }
 
 
+//==========================QUESTION 4==========================
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+#define MAX 100
+
+typedef struct {
+    int top;
+    int items[MAX];
+} Stack;
+void push(Stack *s, int value);
+int pop(Stack *s);
+int isEmpty(Stack *s);
+int peek(Stack *s);
+int evaluatePostfix(const char *expression);
+
+int main() {
+    char expression[MAX];
+    
+    printf("Enter a postfix expression: ");
+    fgets(expression, sizeof(expression), stdin);
+    
+    int result = evaluatePostfix(expression);
+    printf("Result: %d\n", result);
+    
+    return 0;
+}
+void push(Stack *s, int value) {
+    if (s->top == (MAX - 1)) {
+        printf("Stack Overflow\n");
+        exit(EXIT_FAILURE);
+    }
+    s->items[++(s->top)] = value;
+}
+int pop(Stack *s) {
+    if (isEmpty(s)) {
+        printf("Stack Underflow\n");
+        exit(EXIT_FAILURE);
+    }
+    return s->items[(s->top)--];
+}
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+int peek(Stack *s) {
+    if (isEmpty(s)) {
+        printf("Stack is Empty\n");
+        exit(EXIT_FAILURE);
+    }
+    return s->items[s->top];
+}
+int evaluatePostfix(const char *expression) {
+    Stack s;
+    s.top = -1;
+    int i = 0;
+    
+    while (expression[i] != '\0') {
+        if (isspace(expression[i])) {
+            i++;
+            continue;
+        }
+        
+        if (isdigit(expression[i])) {
+            int num = 0;
+            while (isdigit(expression[i])) {
+                num = num * 10 + (expression[i] - '0');
+                i++;
+            }
+            push(&s, num);
+        } else {
+            int operand2 = pop(&s);
+            int operand1 = pop(&s);
+            switch (expression[i]) {
+                case '+':
+                    push(&s, operand1 + operand2);
+                    break;
+                case '-':
+                    push(&s, operand1 - operand2);
+                    break;
+                case '*':
+                    push(&s, operand1 * operand2);
+                    break;
+                case '/':
+                    if (operand2 == 0) {
+                        printf("Division by zero error\n");
+                        exit(EXIT_FAILURE);
+                    }
+                    push(&s, operand1 / operand2);
+                    break;
+                default:
+                    printf("Invalid operator %c\n", expression[i]);
+                    exit(EXIT_FAILURE);
+            }
+            i++;
+        }
+    }
+    
+    return pop(&s);
+}
+
 
 //==========================QUESTION 6==========================
 #include <stdio.h>
