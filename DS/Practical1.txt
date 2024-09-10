@@ -1,0 +1,260 @@
+//==========================QUESTION 1==========================
+#include <stdio.h>
+int main() {
+    int a[3]={1,2,3},i;
+    int *p;
+    p=a;
+    for(i=0; i<3 ;i++){
+        printf("%d is storded at %u \n", *p,p);
+        p++;
+    }
+}
+
+
+//==========================QUESTION 2==========================
+#include <stdio.h>
+int main() {
+    int a[3][3]={1,2,3,4,5,6,7,8,9}, i;
+    int *p;
+    p=&a[0][0];
+    for(i=0; i<9; i++){
+    printf ("%d is stored at %u \n", *p, p);
+    p++;
+    }
+}
+
+
+//==========================QUESTION 3==========================
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SIZE 4
+
+int top = -1, inp_array[SIZE];
+
+void push();
+void pop();
+void show();
+void peep();
+void change();
+
+int main()
+{
+    int choice;
+
+    while (1)
+    {
+        printf("\nPerform operations on the stack:");
+        printf("\n1. Push the element");
+        printf("\n2. Pop the element");
+        printf("\n3. peep the top element");
+        printf("\n4. Change the top element");
+        printf("\n5. Show all elements");
+        printf("\n6. End");
+        printf("\n\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            peep();
+            break;
+        case 4:
+            change();
+            break;
+        case 5:
+            show();
+            break;
+        case 6:
+            exit(0);
+        default:
+            printf("\nInvalid choice!!");
+        }
+    }
+}
+
+void push()
+{
+    int x;
+
+    if (top == SIZE - 1)
+    {
+        printf("\nOverflow!!");
+    }
+    else
+    {
+        printf("\nEnter the element to be added onto the stack: ");
+        scanf("%d", &x);
+        top = top + 1;
+        inp_array[top] = x;
+    }
+}
+
+void pop()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nPopped element: %d", inp_array[top]);
+        top = top - 1;
+    }
+}
+
+void show()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nElements present in the stack: \n");
+        for (int i = top; i >= 0; --i)
+            printf("%d\n", inp_array[i]);
+    }
+}
+
+void peep()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nTop element of the stack: %d\n", inp_array[top]);
+    }
+}
+
+void change()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nEnter new value for the top element: ");
+        scanf("%d", &inp_array[top]);
+        printf("\nTop element changed successfully!\n");
+}
+}
+
+
+//==========================QUESTION 6==========================
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 1000
+
+typedef struct {
+    int items[MAX];
+    int front, rear;
+} Queue;
+
+void initQueue(Queue *q) {
+    q->front = -1;
+    q->rear = -1;
+}
+
+int isFull(Queue *q) {
+    return (q->rear == MAX - 1);
+}
+
+int isEmpty(Queue *q) {
+    return (q->front == -1 || q->front > q->rear);
+}
+
+
+void Insert(Queue *q, int value) {
+    if (isFull(q)) {
+        printf("Queue is full. Cannot Insert %d.\n", value);
+        return;
+    }
+    if (isEmpty(q)) {
+        q->front = 0;
+    }
+    q->rear++;
+    q->items[q->rear] = value;
+    printf("Inserted %d.\n", value);
+}
+
+int Delete(Queue *q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty. Cannot Delete.\n");
+        return -1; 
+    }
+    int value = q->items[q->front];
+    q->front++;
+    if (q->front > q->rear) {
+        initQueue(q); 
+    }
+    return value;
+}
+
+void displayQueue(Queue *q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty.\n");
+        return;
+    }
+    printf("Queue elements are: ");
+    for (int i = q->front; i <= q->rear; i++) {
+        printf("%d ", q->items[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    Queue q;
+    initQueue(&q);
+
+    int choice, value;
+
+    while (1) {
+        printf("\nQueue Operations:\n");
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Display Queue\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter value to Insert: ");
+                scanf("%d", &value);
+                Insert(&q, value);
+                break;
+
+            case 2:
+                value = Delete(&q);
+                if (value != -1) {
+                    printf("Deleted %d.\n", value);
+                }
+                break;
+
+            case 3:
+                displayQueue(&q);
+                break;
+
+            case 4:
+                printf("Exiting...\n");
+                exit(0);
+
+            default:
+                printf("Invalid choice. Please try again.\n");
+                break;
+        }
+    }
+
+    return 0;
+}
