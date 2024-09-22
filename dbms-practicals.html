@@ -1,215 +1,101 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DBMS Practicals</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-    />
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
-      header {
-        background-color: #0073e6;
-        color: #fff;
-        padding: 5px 0;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-      }
-      nav ul li {
-        margin: 0 15px;
-      }
-      nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-      nav ul li a:hover {
-        color: #ffdd57;
-      }
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 40px auto;
-      }
-      .practical {
-        background-color: #fff;
-        padding: 30px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-      }
-      .practical:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-      }
-      .practical h2 {
-        margin-top: 0;
-        font-size: 1.5em;
-        color: #333;
-      }
-      .practical p {
-        color: #666;
-        line-height: 1.6;
-      }
-      .practical a {
-        display: inline-block;
-        margin-top: 10px;
-        color: #0073e6;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-      .practical a:hover {
-        color: #ffdd57;
-      }
-      .warning {
-        background-color: #ffcccb;
-        color: #d8000c;
-        padding: 15px;
-        border-radius: 5px;
-        text-align: center;
-        margin: 20px 0;
-        font-size: 1em;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-      .back-link {
-        display: block;
-        margin: 20px 0;
-        text-align: center;
-      }
-      .back-link a {
-        color: #0073e6;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-      .back-link a:hover {
-        color: #ffdd57;
-      }
-      footer {
-        background-color: #0073e6;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-      /* Responsive styles */
-      @media (max-width: 768px) {
-        .practical {
-          padding: 20px;
-          margin-bottom: 15px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>DBMS Practicals</h1>
-    </header>
-    <div class="container">
-      <div class="warning">
-        <p>
-          <strong>Warning:</strong> These practical exercises were done by
-          Dev Dynasty for study purposes only. If you copy them, action will be
-          taken.
-        </p>
-      </div>
-      <div class="practical">
-        <h2>
-          Practical 1: To create database and insert records in the tables.
-        </h2>
-        <p>
-          Learn how to create a database schema and insert data into tables.
-        </p>
-        <a href="https://drive.google.com/file/d/1q0TgGW85BqeWuYjyd9sNK1GuuiYf9bFq/view?usp=drive_link" target="_blank">
-          View Input
-        </a>
-        •
-        <a
-          href="https://docs.google.com/document/d/1tWRJKVSQAionJ_THaJiQp1qhn9C32xKtD1ZdmBWTzZA/edit?usp=sharing"
-          target="_blank"
-        >
-          View Document
-        </a>
-      </div>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <div class="practical">
-        <h2>
-          Practical 2: Performing Deletion, Modifying, Altering, Updating and Viewing
-          records based on conditions on tables.
-        </h2>
-        <p>
-          Learn how to Performing Deletion, Modifying, Altering, Updating on tables.
-        </p>
-        <a href="https://drive.google.com/file/d/1wLcSBXGoU7mPNfPIqzPdk9xjJDluSCeN/view?usp=drive_link" target="_blank">
-          View Input
-        </a>
-        •
-        <a
-          href="https://docs.google.com/document/d/1XIoJanNTERkmOpwEVQaQTh7WYNUuXDymVbfkpOel-MI/edit?usp=sharing"
-          target="_blank"
-        >
-          View Document
-        </a>
-      </div>
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-      <div class="practical">
-        <h2>
-          Practical 3: Performing queries with various operators and functions.
-        </h2>
-        <p>
-          Learn about various operators and functions. Perform practical after undestanding operators and functions.
-        </p>
-        <a href="https://drive.google.com/file/d/194tCLG2KSiU2dm1EIQUTk0ExRIKxItjY/view?usp=drive_link" target="_blank">
-          View Input
-        </a>
-        •
-        <a
-          href="https://docs.google.com/document/d/1o2yFezRwGyF5WGaFDv-vWTLEENz3fFFL3_zDxyc5-Bk/edit?usp=sharing"
-          target="_blank"
-        >
-          View Document
-        </a>
-      </div>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-      <div class="practical">
-        <h2>
-          Practical 4: Create tables with various Data Constraints and verify by inserting values in it.
-        </h2>
-        <p>
-          Learn to Create tables with various Data Constraints and verify by inserting values in it.
-        </p>
-        <a href="https://drive.google.com/file/d/1-5vPic2rw34b6NZZTcV0xd-jUwkys5Mz/view?usp=drive_link" target="_blank">
-          View Input
+        <title>DBMS Practicals | Dev Dynasty</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="index.html" class="nav__logo">Dev Dynasty</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"></li>
+                            <a href="index.html" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html" class="nav__link">Subjects</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#Contributors" class="nav__link">Contributors</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+
+
+            <!--=============== SERVICES ===============-->
+            <section class="services section container">
+                <h2 class="section__title">Database <br> Management System 🗄️</h2>
+                <div class="services__container grid">
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Practical 1</h3>
+                        <p class="services__description">Learn to create database and insert records in the tables.
+                        </p>
+                        <div>
+                            <a href="https://drive.google.com/file/d/1q0TgGW85BqeWuYjyd9sNK1GuuiYf9bFq/view?usp=drive_link" class="button button-link" target="_blank">Code</a> | 
+                            <a href="https://docs.google.com/document/d/1tWRJKVSQAionJ_THaJiQp1qhn9C32xKtD1ZdmBWTzZA/edit?usp=sharing" class="button button-link" target="_blank">Documents</a>
+                        </div>
+                    </div>
+
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Practical 2</h3>
+                        <p class="services__description">Learn to performing Deletion, Modifying, Altering, Updating and Viewing records on tables.
+                        </p>
+                        <div>
+                            <a href="https://drive.google.com/file/d/1wLcSBXGoU7mPNfPIqzPdk9xjJDluSCeN/view?usp=drive_link" class="button button-link" target="_blank">Code</a> | 
+                            <a href="https://docs.google.com/document/d/1XIoJanNTERkmOpwEVQaQTh7WYNUuXDymVbfkpOel-MI/edit?usp=sharing" class="button button-link" target="_blank">Documents</a>
+                        </div>
+                    </div>
+
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Practical 3</h3>
+                        <p class="services__description">Learn to performing queries with various operators and functions.
+                        </p>
+                        <div>
+                            <a href="https://drive.google.com/file/d/1q0TgGW85BqeWuYjyd9sNK1GuuiYf9bFq/view?usp=drive_link" class="button button-link" target="_blank">Code</a> | 
+                            <a href="https://docs.google.com/document/d/1tWRJKVSQAionJ_THaJiQp1qhn9C32xKtD1ZdmBWTzZA/edit?usp=sharing" class="button button-link" target="_blank">Documents</a>
+                        </div>
+                    </div>
+
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Practical 4</h3>
+                        <p class="services__description">Learn to create tables with various Data Constraints and verify by inserting values in it.
+                        </p>
+                        <div>
+                            <a href="https://drive.google.com/file/d/1-5vPic2rw34b6NZZTcV0xd-jUwkys5Mz/view?usp=drive_link" class="button button-link" target="_blank">Code</a> | 
+                            <a href="https://docs.google.com/document/d/1DhGAjIVXzQLkeJc-ODU6T77CjpVzsM235NnH1kofNz4/edit?usp=sharing" class="button button-link" target="_blank">Documents</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt scrollup__icon'></i>
         </a>
-        •
-        <a
-          href="https://docs.google.com/document/d/1DhGAjIVXzQLkeJc-ODU6T77CjpVzsM235NnH1kofNz4/edit?usp=sharing"
-          target="_blank"
-        >
-          View Document
-        </a>
-      </div>
-      <div class="back-link">
-        <a href="index.html">Back to Home</a>
-      </div>
-    </div>
-  </body>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>

@@ -1,254 +1,106 @@
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practicals</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-    />
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-      }
-      header {
-        background-color: #0073e6;
-        color: #fff;
-        padding: 5px 0;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 10px 0 0 0;
-        display: flex;
-        justify-content: center;
-      }
-      nav ul li {
-        margin: 0 15px;
-      }
-      nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-      nav ul li a:hover {
-        color: #ffdd57;
-      }
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 40px auto;
-      }
-      .subject {
-        background-color: #fff;
-        padding: 30px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-      }
-      .subject:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-      }
-      .subject h2 {
-        margin-top: 0;
-        font-size: 1.8em;
-        color: #333;
-      }
-      .subject p {
-        color: #666;
-        line-height: 1.6;
-      }
-      .subject a {
-        display: inline-block;
-        margin-top: 10px;
-        color: #0073e6;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-      .subject a:hover {
-        color: #ffdd57;
-      }
-      .contributors {
-        background-color: #fff;
-        padding: 30px;
-        margin-top: 40px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-      .contributors h2 {
-        margin-top: 0;
-        font-size: 1.8em;
-        color: #333;
-        text-align: center;
-      }
-      .contributor {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-      .contributor img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-right: 20px;
-      }
-      .contributor-info {
-        flex-grow: 1;
-      }
-      .contributor-info h3 {
-        margin: 0;
-        font-size: 1.4em;
-        color: #333;
-      }
-      .contributor-info p {
-        margin: 5px 0;
-        color: #666;
-      }
-      .contributor-info a {
-        margin-right: 10px;
-        color: #0073e6;
-        text-decoration: none;
-        font-size: 1.2em;
-        transition: color 0.3s ease;
-      }
-      .contributor-info a:hover {
-        color: #ffdd57;
-      }
-      footer {
-        background-color: #0073e6;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-      /* Responsive styles */
-      @media (max-width: 768px) {
-        nav ul {
-          flex-direction: column;
-          align-items: center;
-        }
-        nav ul li {
-          margin: 10px 0;
-        }
-        .subject {
-          padding: 20px;
-          margin-bottom: 15px;
-        }
-        footer {
-          position: static;
-          padding: 20px 0;
-        }
-        .contributor {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-        .contributor img {
-          margin-bottom: 10px;
-        }
-        .contributor-info a {
-          display: inline-block;
-          margin-bottom: 5px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Practicals, Notes & Videos</h1>
-    </header>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="container">
-      <div class="subject">
-        <h2>Applied Engineering Mathematics</h2>
-        <p>Explore various notes related to Applied Engineering Mathematics.</p>
-        <a href="video-lecture.html">Videos</a>
-      </div>
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-      <div class="subject">
-        <h2>Entrepreneurship Development</h2>
-        <p>Explore various notes related to Entrepreneurship Development.</p>
-        <a href="ed-notes.html">Notes</a>
-      </div>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-      <div class="subject">
-        <h2>Database Management System</h2>
-        <p>
-          Explore various practicals related to Database Management Systems.
-        </p>
-        <a href="dbms-practicals.html">Practicals</a>
-        •
-        <a href="video-lecture.html">Videos</a>
-        •
-        <a href="notes.html">Notes</a>
-      </div>
+        <title>Dev Dynasty | Resources</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">Dev Dynasty</a>
 
-      <div class="subject">
-        <h2>Data Structure</h2>
-        <p>Explore various practicals related to Data Structure.</p>
-        <a href="ds-practicals.html">Practicals</a>
-        •
-        <a href="ds-lectures.html">Videos</a>
-        •
-        <a href="notes.html">Notes</a>
-      </div>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"></li>
+                            <a href="#" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#Subjects" class="nav__link">Subjects</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#Contributors" class="nav__link">Contributors</a>
+                        </li>
+                    </ul>
+                </div>
 
-      <div class="subject">
-        <h2>Object-Oriented Programming</h2>
-        <p>
-          Explore various practicals related to Object-Oriented Programming.
-        </p>
-        <a href="oop-practicals.html">Practicals</a>
-        •
-        <a href="video-lecture.html">Videos</a>
-        •
-        <a href="notes.html">Notes</a>
-      </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
 
-      <div class="contributors">
-        <h2>Contributors</h2>
-        <div class="contributor">
-          <img src="assets/janit's-avatar.jpg" alt="Contributor Name" />
-          <div class="contributor-info">
-            <h3>Janit Patel</h3>
-            <p>janitkapdiya@gmail.com</p>
-            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
-          </div>
+                <!-- <a href="#" class="button button__header">Order Now!</a> -->
+            </nav>
+        </header>
 
-          <img src="assets/dev's-avatar.jpg" alt="Contributor Name" />
-          <div class="contributor-info">
-            <h3>Dev Prajapati</h3>
-            <p>Dev300036@gmail.com</p>
-            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
-          </div>
+        <main class="main">
 
-          <img src="assets/fenil's-avatar.jpg" alt="Contributor Name" />
-          <div class="contributor-info">
-            <h3>Fenil Prajapati</h3>
-            <p>prafenil007@gmail.com</p>
-            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
-          </div>
 
-          <img src="assets/het's-avatar.jpg" alt="Contributor Name" />
-          <div class="contributor-info">
-            <h3>Het Patel</h3>
-            <p>het2706@gmail.com</p>
-            <!-- <a href="mailto:john.doe@example.com">Email</a> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+            <!--=============== SERVICES ===============-->
+            <section class="services section container" id="Subjects">
+                <h2 class="section__title">Practicals, Notes, Lectures <br> and Other Resources 🤓</h2>
+                <div class="services__container grid">
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Applied Engineering Mathematics</h3>
+                        <p class="services__description">Explore various material related to Applied Engineering Mathematics.</p>
+                        <div>
+                            <a href="#" class="button button-link">Lectures</a> | 
+                            <a href="#" class="button button-link">Notes</a>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Entrepreneurship Development</h3>
+                        <p class="services__description">Explore various material related to Entrepreneurship Development.</p>
+                        <div>
+                            <a href="ed-notes.html" class="button button-link">Notes</a>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Database Management System</h3>
+                        <p class="services__description">Explore various material related to Database Management System.</p>
+                        <div>
+                            <a href="dbms-practicals.html" class="button button-link">Practicals</a> | 
+                            <a href="#" class="button button-link">Lectures</a> | 
+                            <a href="#" class="button button-link">Notes</a>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Data Structure and Algorithm</h3>
+                        <p class="services__description">Explore various material related to Data Structure and<br> Algorithm.</p>
+                        <div>
+                            <a href="ds-practicals.html" class="button button-link">Practicals</a> | 
+                            <a href="#" class="button button-link">Lectures</a> | 
+                            <a href="#" class="button button-link">Notes</a>
+                        </div>
+                    </div>
+                    <div class="services__data">
+                        <h3 class="services__subtitle">Object-Oriented Programming</h3>
+                        <p class="services__description">Explore various material related to Object-Oriented Programming.</p>
+                        <div>
+                            <a href="oop-practicals.html" class="button button-link">Practicals</a> | 
+                            <a href="#" class="button button-link">Lectures</a> | 
+                            <a href="#" class="button button-link">Notes</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+        </a>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
