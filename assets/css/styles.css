@@ -337,6 +337,11 @@ body.dark-theme {
   bottom: 3rem;
 }
 
+
+.video__link{
+  color: #DA2535;
+}
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: .6rem;
