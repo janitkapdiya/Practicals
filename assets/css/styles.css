@@ -11,8 +11,8 @@
   --first-color-lighten: hsl(var(--hue), var(--sat), 80%);
   --first-color-alt: #C42130;
   --title-color: #161212;
-  --text-color: #161212;
-  --text-color-light: #161212;
+  --text-color: #454545;
+  --text-color-light: #8C8C8C;
   --body-color: #FEFBFB;
   --container-color: #FFF;
   --scroll-bar-color: hsl(var(--hue), 4%, 85%);
