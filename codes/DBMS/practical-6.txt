@@ -1,0 +1,2 @@
+create database practical6_DevDynasty;
+use practical6_DevDynasty;

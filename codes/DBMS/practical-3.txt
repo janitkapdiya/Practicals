@@ -1,0 +1,139 @@
+create database practical3_DevDynasty;
+use practical3_DevDynasty;
+
+-- ==================== Table 1 ↓ ====================
+CREATE TABLE sales_order (
+    Order_no VARCHAR(6),
+    Order_date DATE,
+    Client_no VARCHAR(6),
+    S_no VARCHAR(6),
+    Dely_type CHAR(1),
+    Billed_yn CHAR(1),
+    Dely_date DATE,
+    Order_status VARCHAR(10)
+);
+
+INSERT INTO sales_order (Order_no, Order_date, Client_no, S_no, Dely_type, Billed_yn, Dely_date, Order_status) VALUES
+('O1901', '2015-06-12', 'C001', 'S001', 'F', 'N', '2015-06-20', 'InProcess'),
+('O1902', '2015-01-25', 'C002', 'S002', 'P', 'N', '2015-06-27', 'Cancelled'),
+('O4665', '2015-02-18', 'C003', 'S003', 'F', 'Y', '2015-02-20', 'Fulfilled'),
+('O1903', '2015-04-03', 'C001', 'S001', 'F', 'Y', '2015-04-07', 'Fulfilled'),
+('O4666', '2015-05-20', 'C004', 'S002', 'P', 'N', '2015-05-22', 'Cancelled'),
+('O1908', '2015-05-24', 'C005', 'S003', 'F', 'N', '2015-05-26', 'InProcess');
+
+select * from sales_order;
+
+-- ==================== Queries on computation on table data ====================
+-- 1. Find the name of all clients having ‘a ‘ as the second letter in their names.
+SELECT Client_name
+FROM client_master
+WHERE Client_name LIKE '_a%';
+
+-- 2. Find out the clients whose name is four characters long and the second letter is ‘a‘.
+SELECT Client_name
+FROM client_master
+WHERE LENGTH(Client_name) = 4 AND Client_name LIKE '_a%';
+
+-- 3. Find out the name of cities whose second last character is ‘a’.
+SELECT DISTINCT City
+FROM client_master
+WHERE City LIKE '%a_';
+
+-- 4. Print the list of clients whose Bal_due is greater than or equal to 10000.
+SELECT *
+FROM client_master
+WHERE Bal_due >= 10000;
+
+-- 5. Print the information from the sales_order table for orders placed in the month of January.
+SELECT *
+FROM sales_order
+WHERE MONTH(Order_date) = 1;
+
+-- 6. Display the order information for Client_no ‘C003’ and ‘C001’.
+SELECT *
+FROM sales_order
+WHERE Client_no IN ('C003', 'C001');
+
+-- 7. Find products whose selling price is greater than 2000 and less than or equal to 5000.
+SELECT *
+FROM Product_master
+WHERE Sell_price > 2000 AND Sell_price <= 5000;
+
+-- 8. Find products whose selling price is more than 1500. Calculate a new selling price as, original selling price * 0.15. Rename the new column in the above query as new_price.
+SELECT Product_no, Product_description, Sell_price, Sell_price * 0.15 AS new_price
+FROM Product_master
+WHERE Sell_price > 1500;
+
+-- 9. List the names, city, and state of clients who are not in the state of ‘Maharashtra’.
+SELECT Client_name, City, State
+FROM client_master
+WHERE State <> 'Maharashtra';
+
+-- 10. Count the total number of orders.
+SELECT COUNT(*)
+FROM sales_order;
+
+-- 11. Calculate the average price of all products.
+SELECT AVG(Sell_price) AS avg_price
+FROM Product_master;
+
+-- 12. Determine the maximum and minimum product prices. Rename the output as max_price and min_price respectively.
+SELECT MAX(Sell_price) AS max_price, MIN(Sell_price) AS min_price
+FROM Product_master;
+
+-- 13. Count the number of products having price greater than or equal to 1500.
+SELECT COUNT(*)
+FROM Product_master
+WHERE Sell_price >= 1500;
+
+-- 14. Find all the products whose Qty_on_hand is less than reorder level.
+SELECT *
+FROM Product_master
+WHERE Qty_on_hand < Reorder_1v1;
+
+-- 15. Create table cmaster from client_master table.
+CREATE TABLE cmaster AS
+SELECT *
+FROM client_master;
+select * from cmaster;
+
+-- 16. Insert data into cmaster from client_master where city = ‘Bombay’:
+INSERT INTO cmaster
+SELECT *
+FROM client_master
+WHERE City = 'Bombay';
+select * from cmaster;
+
+-- 17. Create table sales from sales_order with Order_no and Client_no columns.
+CREATE TABLE sales AS
+SELECT Order_no, Client_no
+FROM sales_order;
+select * from sales;
+
+-- 18. Insert data into sales from sales_order table.
+INSERT INTO sales
+SELECT Order_no, Client_no
+FROM sales_order;
+
+
+-- ==================== Queries on Date Manipulation ====================
+-- 1. Display the order number and day on which clients placed their order.
+SELECT Order_no, DAYOFWEEK(Order_date) AS Day_of_Week
+FROM sales_order;
+
+-- 2. Display the month (in alphabets) and date when the order must be delivered.
+SELECT Order_no, DATE_FORMAT(Dely_date, '%M') AS Month, DAY(Dely_date) AS Date
+FROM sales_order;
+
+-- 3. Find the number of days elapsed between delivery date and order date from sales_order table.
+SELECT Order_no, DATEDIFF(Dely_date, Order_date) AS Days_Elapsed
+FROM sales_order;
+
+-- 4. Find the date, 15 days after today’s date.
+SELECT DATE_ADD(CURDATE(), INTERVAL 15 DAY) AS Date_15_Days_After_Today;
+
+-- 5. Display the current date and time.
+SELECT NOW() AS Current_Date_and_Time;
+
+-- 6. Display system time.
+SELECT CURRENT_TIME() AS System_Time;

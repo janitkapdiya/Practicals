@@ -1,0 +1,2 @@
+create database practical8_DevDynasty;
+use practical8_DevDynasty;

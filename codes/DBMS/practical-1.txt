@@ -1,0 +1,63 @@
+create database practical1_DevDynasty;
+use practical1_DevDynasty;
+
+-- ==================== Table 1 ↓ ====================
+create table client_master (
+			Client_no varchar(6),
+   		Client_name varchar(20),
+    	City varchar (15),
+    	Pincode numeric (8),
+    	state varchar (15),
+    	Bal_due numeric (10,2)
+);
+
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C001', 'Ivan', 'Bombay', '400054', 'Maharashtra', '15000');
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C002', 'Vandana', 'Madras', '780001', 'Tamil Nadu', '0');
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C003', 'Pramada', 'Bombay', '400054', 'Maharashtra', '5000');
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C004', 'Basu', 'Bombay', '400057', 'Maharashtra', '0');
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C005', 'Ravi', 'Delhi', '400056', 'Gujarat', '2000');
+Insert into client_master(Client_no, client_name, City, Pincode, State, Bal_due) values ('C006', 'Rukmani', 'Bombay', '400050', 'Maharashtra', '0');
+
+select * from client_master;
+
+-- ==================== Table 2 ↓ ====================>
+create table Product_master(
+			Product_no varchar (6), 
+    	Product_description varchar (15), 
+    	Product_percent numeric (4,2), 
+    	U_measure varchar (10), 
+    	Qty_on_hand numeric (8), 
+    	Reorder_1v1 numeric (8), 
+    	Sell_price numeric (8,2), 
+    	Cost_price numeric (8,2) 
+);
+
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P001', 'Floppies', '5', 'Piece', '100', '20', '525', '500');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P002', 'Monitor', '6', 'Piece', '10', '3', '12000', '11280');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P003', 'Mouse', '5', 'Piece', '20', '5', '1050', '1000');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P004', 'Floppies', '5', 'Piece', '100', '20', '525', '500');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P005', 'Keyboards', '2', 'Piece', '10', '3', '3150', '3050');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P006', 'Cd Drive', '2.5', 'Piece', '10', '3', '5250', '5100');
+Insert into Product_master (Product_no, Product_description, Product_percent, U_measure, Qty_on_hand, Reorder_1v1, Sell_price, Cost_price) values ('P007', '1.44 Drive', '4', 'Piece', '10', '3', '8400', '8000');
+
+select * from Product_master;
+
+-- ==================== Table 3 ↓ ====================>
+create table Salesman_master(
+			S_no varchar (6),
+			S_name varchar (20),
+			City varchar (20),
+			Pincode numeric (8),
+			State varchar (20),
+			Sal_amt numeric (8,2),
+			Tgt_to_get numeric (6,2),
+			Ytd_sales numeric (6,2),
+			remarks varchar (12)
+);
+
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S001', 'Kiran', 'Bombay', '40002', 'Maharashtra', '3000', '100', '50', 'Excellent');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S002', 'Manish', 'Bombay', '40001', 'Maharashtra', '3000', '200', '100', 'Good');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S003', 'Ravi', 'Bombay', '40032', 'Maharashtra', '3000', '200', '100', 'Average');
+Insert into Salesman_master (S_no, S_name, City, Pincode, State, Sal_amt, Tgt_to_get, Ytd_sales, remarks) values ('S004', 'Ashish', 'Bombay', '40044', 'Maharashtra', '3500', '200', '150', 'Good');
+
+select * from Salesman_master;
