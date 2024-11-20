@@ -1,2 +1,144 @@
 create database practical6_DevDynasty;
 use practical6_DevDynasty;
+
+-- ==================== Tables ↓ ====================
+-- product_master
+CREATE TABLE product_master (
+    product_no VARCHAR(10),
+    description VARCHAR(50),
+    price DECIMAL(10, 2),
+    PRIMARY KEY (product_no)
+);
+
+INSERT INTO product_master VALUES
+('P101', 'Mouse', 500.00),
+('P102', 'Keyboard', 800.00),
+('P103', 'Monitor', 15000.00),
+('P104', 'CD Drive', 1200.00),
+('P105', 'HDD', 4000.00);
+
+-- sales_order_details
+CREATE TABLE sales_order_details (
+    order_no VARCHAR(10),
+    product_no VARCHAR(10),
+    qty_ordered INT,
+    PRIMARY KEY (order_no, product_no),
+    FOREIGN KEY (product_no) REFERENCES product_master(product_no)
+);
+
+INSERT INTO sales_order_details VALUES
+('O101', 'P101', 10),
+('O102', 'P102', 5),
+('O103', 'P103', 2),
+('O104', 'P104', 3),
+('O105', 'P102', 4);
+
+-- client_master
+CREATE TABLE client_master (
+    client_no VARCHAR(10),
+    name VARCHAR(50),
+    address1 VARCHAR(100),
+    address2 VARCHAR(100),
+    city VARCHAR(50),
+    pincode VARCHAR(10),
+    PRIMARY KEY (client_no)
+);
+
+INSERT INTO client_master VALUES
+('C001', 'Aarav Mehta', 'Street 1', 'Sector 10', 'Mumbai', '400001'),
+('C002', 'Riya Patel', 'Street 2', 'Sector 12', 'Ahmedabad', '380001'),
+('C003', 'Arjun Sharma', 'Street 5', 'Sector 15', 'Delhi', '110001');
+
+-- sales_order
+CREATE TABLE sales_order (
+    order_no VARCHAR(10),
+    client_no VARCHAR(10),
+    order_date DATE,
+    PRIMARY KEY (order_no),
+    FOREIGN KEY (client_no) REFERENCES client_master(client_no)
+);
+
+INSERT INTO sales_order VALUES
+('O101', 'C001', '2024-11-01'),
+('O102', 'C002', '2024-11-02'),
+('O103', 'C003', '2024-11-03'),
+('O104', 'C001', '2024-11-04'),
+('O105', 'C002', '2024-11-05');
+
+-- Subquery Examples
+-- 1. Find the product_no and description of non moving products i.e. product not being sold.
+SELECT product_no, description
+FROM product_master
+WHERE product_no NOT IN (SELECT DISTINCT product_no FROM sales_order_details);
+
+-- 2. Find the customer name, address1, address2, city and pincode for the client who has placed order no ‘O1901’.
+SELECT cm.name, cm.address1, cm.address2, cm.city, cm.pincode
+FROM client_master cm
+JOIN sales_order so ON cm.client_no = so.client_no
+WHERE so.order_no = 'O101';
+
+-- 3. Find out if the product ‘Mouse’ has been ordered by any client and print the client_no, name to whom it was sold.
+SELECT DISTINCT cm.client_no, cm.name
+FROM client_master cm
+JOIN sales_order so ON cm.client_no = so.client_no
+JOIN sales_order_details sod ON so.order_no = sod.order_no
+WHERE sod.product_no = (SELECT product_no FROM product_master WHERE description = 'Mouse');
+
+-- Group By and Having
+-- 1. Print the description and total qty sold for each product.
+SELECT pm.description, SUM(sod.qty_ordered) AS total_qty_sold
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+GROUP BY pm.description;
+
+-- 2. Find the value of each product sold.
+SELECT pm.description, SUM(sod.qty_ordered * pm.price) AS total_value
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+GROUP BY pm.description;
+
+-- 3. Find out the sum total of all the billed orders for the month of January
+SELECT SUM(sod.qty_ordered * pm.price) AS total_billed
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+JOIN sales_order so ON sod.order_no = so.order_no
+WHERE MONTH(so.order_date) = 1;
+
+-- Joins and Correlations
+-- 1. Find out the products, which have been sold to 'Aarav Mehta'.
+SELECT pm.product_no, pm.description
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+JOIN sales_order so ON sod.order_no = so.order_no
+JOIN client_master cm ON so.client_no = cm.client_no
+WHERE cm.name = 'Aarav Mehta';
+
+-- 2. Find the product_no and description of constantly sold i.e. rapidly moving products.
+SELECT pm.product_no, pm.description
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+GROUP BY pm.product_no, pm.description
+HAVING COUNT(sod.order_no) > 1;
+
+-- 3. Find the names of clients who have purchased ‘Cd Drive’.
+SELECT DISTINCT cm.name
+FROM client_master cm
+JOIN sales_order so ON cm.client_no = so.client_no
+JOIN sales_order_details sod ON so.order_no = sod.order_no
+JOIN product_master pm ON sod.product_no = pm.product_no
+WHERE pm.description = 'CD Drive';
+
+-- 4. List the product number and order number from customers who have ordered less than 4 units of 'Mouse'.
+SELECT sod.product_no, sod.order_no
+FROM sales_order_details sod
+JOIN product_master pm ON sod.product_no = pm.product_no
+WHERE pm.description = 'Mouse' AND sod.quantity < 4;
+
+
+-- Constructing Sentences
+-- 1. Print information from product-master, sales_order_detail tables in the following format for all records
+SELECT 
+    pm.description || ' worth Rs. ' || SUM(sod.qty_ordered * pm.price) || ' was sold.' AS statement
+FROM product_master pm
+JOIN sales_order_details sod ON pm.product_no = sod.product_no
+GROUP BY pm.description;
