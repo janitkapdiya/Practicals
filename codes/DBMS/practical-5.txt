@@ -1,2 +1,102 @@
 create database practical5_DevDynasty;
 use practical5_DevDynasty;
+
+-- ==================== Table 1 ↓ ====================
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(50),
+    Age INT,
+    DepartmentID INT,
+    JobRole VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    HireDate DATE
+);
+
+INSERT INTO Employees (Name, Age, DepartmentID, JobRole, Salary, HireDate) VALUES
+('Ramesh', 32, 1, 'Manager', 60000.00, '1990-03-15'),
+('Sita', 25, 2, 'Developer', 40000.00, '1992-06-10'),
+('Amit', 28, 1, 'Analyst', 45000.00, '1994-07-12'),
+('Kavita', 30, 2, 'Developer', 42000.00, '1993-09-18'),
+('Vikram', 34, 3, 'HR', 38000.00, '1991-04-02'),
+('Neha', 26, 1, 'Analyst', 47000.00, '1995-10-22'),
+('Arjun', 27, 3, 'HR', 39000.00, '1994-12-30'),
+('Rohit', 29, 1, 'Manager', 62000.00, '1989-11-25'),
+('Ragini', 24, 2, 'Tester', 35000.00, '1995-01-05'),
+('Manoj', 35, 3, 'HR', 40000.00, '1988-08-20');
+
+-- 1. How many employees are there in each department?
+SELECT DepartmentID, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY DepartmentID;
+
+-- 2. Find out total number of job roles assigned in each department.
+SELECT DepartmentID, COUNT(DISTINCT JobRole) AS JobRoleCount
+FROM Employees
+GROUP BY DepartmentID;
+
+-- 3. Find out employee names and salary with salary > 2000 (without duplicate names).
+SELECT DISTINCT Name, Salary
+FROM Employees
+WHERE Salary > 2000;
+
+-- 4. Find out number of employees hired after 03rd April 1991.
+SELECT COUNT(*) AS HiredAfterDate
+FROM Employees
+WHERE HireDate > '1991-04-03';
+
+-- 5. List the number of employees in each job role, sorted high to low.
+SELECT JobRole, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY JobRole
+ORDER BY EmployeeCount DESC;
+
+-- 6. List the number of employees in each department, including only those with more than 3 employees.
+SELECT DepartmentID, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY DepartmentID
+HAVING COUNT(*) > 3;
+
+-- 7. Display the total salary amount for each department.
+SELECT DepartmentID, SUM(Salary) AS TotalSalary
+FROM Employees
+GROUP BY DepartmentID;
+
+-- 8. Count employees in each department whose name ends with "n".
+SELECT DepartmentID, COUNT(*) AS NameEndsWithN
+FROM Employees
+WHERE Name LIKE '%n'
+GROUP BY DepartmentID;
+
+-- 9. Count employees in each department with 'a' in their name.
+SELECT DepartmentID, COUNT(*) AS NameContainsA
+FROM Employees
+WHERE Name LIKE '%a%'
+GROUP BY DepartmentID;
+
+-- 10. Count employees with salary greater than average salary in each department.
+SELECT DepartmentID, COUNT(*) AS AboveAverage
+FROM Employees e1
+WHERE Salary > (SELECT AVG(Salary) FROM Employees e2 WHERE e1.DepartmentID = e2.DepartmentID)
+GROUP BY DepartmentID;
+
+-- 11. Count employees in departments with > 2 employees, displaying DepartmentID in descending order.
+SELECT DepartmentID, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY DepartmentID
+HAVING COUNT(*) > 2
+ORDER BY DepartmentID DESC;
+
+-- 12. Display department-wise average salary of employees.
+SELECT DepartmentID, AVG(Salary) AS AverageSalary
+FROM Employees
+GROUP BY DepartmentID;
+
+-- 13. Display DepartmentID and salary of the employee with the maximum salary in each department.
+SELECT DepartmentID, MAX(Salary) AS MaxSalary
+FROM Employees
+GROUP BY DepartmentID;
+
+-- 14. Display DepartmentID and salary of the employee with the minimum salary in each department.
+SELECT DepartmentID, MIN(Salary) AS MinSalary
+FROM Employees
+GROUP BY DepartmentID;
